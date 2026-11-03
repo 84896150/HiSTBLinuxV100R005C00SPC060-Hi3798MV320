@@ -240,8 +240,9 @@ extern int __put_user_8(void *, unsigned long long);
 
 #define __put_user_x(__r2, __p, __e, __l, __s)				\
 	   __asm__ __volatile__ (					\
-		__asmeq("%0", "r0") __asmeq("%2", "r2")			\
+		__asmeq("%0", "r0")					\
 		__asmeq("%3", "r1")					\
+		"mov	r2, %2\n\t"					\
 		"bl	__put_user_" #__s				\
 		: "=&r" (__e)						\
 		: "0" (__p), "r" (__r2), "r" (__l)			\

@@ -794,3 +794,5 @@ targets += $(DTB_LIST)
 
 always		:= $(DTB_LIST)
 clean-files	:= *.dtb
+dtb-$(CONFIG_ARCH_HISI) += hi3798mv320.dtb
+dtb-y += hi3798mv320.dtb
